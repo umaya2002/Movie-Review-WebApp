@@ -9,6 +9,23 @@ const Home = () => {
     const [popularMovies, setPopularMovies] = useState([]);
 
     useEffect(() => {
+
+        const fetchReviews = async () => {
+            try {
+                const response = await fetch("http://localhost:8080/api/review",{
+                    method:"GET"
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Failed to fetch reviews:', error);
+            }
+        }
+        
+        fetchReviews();
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US")
             .then(res => res.json())
             .then(data => setPopularMovies(data.results)) 
