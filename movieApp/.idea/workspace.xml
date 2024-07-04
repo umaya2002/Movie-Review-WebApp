@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="962c81fc-2401-45f1-8856-d4f77865e6e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../imdb-fe/src/Pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../imdb-fe/src/Pages/home/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movieApp/src/main/java/com/example/movieApp/movieApp/review/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/movieApp/src/main/java/com/example/movieApp/movieApp/Controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movieApp/src/main/java/com/example/movieApp/movieApp/review/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/movieApp/src/main/java/com/example/movieApp/movieApp/Service/ReviewService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,7 @@
   "keyToString": {
     "Application.MovieAppApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Hp/Desktop/A in O/MOVIE/movieApp"
   }

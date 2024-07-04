@@ -1,5 +1,7 @@
-package com.example.movieApp.movieApp.review;
+package com.example.movieApp.movieApp.Service;
 
+import com.example.movieApp.movieApp.review.Review;
+import com.example.movieApp.movieApp.Repo.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

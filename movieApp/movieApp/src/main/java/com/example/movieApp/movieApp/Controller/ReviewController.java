@@ -1,5 +1,7 @@
-package com.example.movieApp.movieApp.review;
+package com.example.movieApp.movieApp.Controller;
 
+import com.example.movieApp.movieApp.review.Review;
+import com.example.movieApp.movieApp.Service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
