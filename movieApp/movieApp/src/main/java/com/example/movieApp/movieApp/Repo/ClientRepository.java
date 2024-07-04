@@ -1,2 +1,4 @@
-package com.example.movieApp.movieApp.Repo;public class ClientRepository {
+package com.example.movieApp.movieApp.Repo;
+
+public class ClientRepository {
 }
