@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Review.css';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 const MovieReview = () => {
-  const [reviews, setReviews] = useState([]);
-  const [newReview, setNewReview] = useState({
+  const [reviews, setReviews] = useState([]); //existing review
+  const [newReview, setNewReview] = useState({  //new review data
     movieName: '',
     userName: '',
     description: '',
-    rating: ''
+    rating: 0
   });
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); //popups
 
   // Fetch reviews from the backend when the component mounts
   useEffect(() => {
@@ -19,11 +21,18 @@ const MovieReview = () => {
       .catch(error => console.error('Error fetching reviews:', error));
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e) => { //update to the new review form 
     const { name, value } = e.target;
     setNewReview({
       ...newReview,
       [name]: value
+    });
+  };
+
+  const handleRatingChange = (rating) => { //when change the start rating
+    setNewReview({
+      ...newReview,
+      rating: rating
     });
   };
 
@@ -45,12 +54,12 @@ const MovieReview = () => {
         throw new Error('Network response was not ok');
       })
       .then(addedReview => {
-        setReviews([...reviews, addedReview]);
+        setReviews([addedReview, ...reviews]);  // Prepend the new review to the reviews array
         setNewReview({
           movieName: '',
           userName: '',
           description: '',
-          rating: ''
+          rating: 0
         });
         // Show the popup
         setShowPopup(true);
@@ -87,7 +96,7 @@ const MovieReview = () => {
           <p><strong>Reviewed by:</strong> {review.userName}</p>
           <p><strong>Date:</strong> {new Date(review.date).toLocaleDateString()}</p>
           <p><strong>Description:</strong> {review.description}</p>
-          <p><strong>Rating:</strong> {review.rating} / 5</p>
+          <p><strong>Rating:</strong> <Rating name="read-only" value={review.rating} readOnly /></p>
           <button onClick={() => handleDelete(review.id)}>Delete</button>
         </div>
       ))}
@@ -109,7 +118,7 @@ const MovieReview = () => {
             type="text" 
             name="userName" 
             value={newReview.userName} 
-            onChange={handleChange} 
+            onChange={handleChange} //changes
             required 
           />
         </label>
@@ -124,15 +133,12 @@ const MovieReview = () => {
         </label>
         <label>
           Rating:
-          <input 
-            type="number" 
-            name="rating" 
-            value={newReview.rating} 
-            onChange={handleChange} 
-            step="0.1" 
-            min="0" 
-            max="5" 
-            required 
+          <Rating 
+            name="simple-controlled"
+            value={newReview.rating}
+            onChange={(event, newValue) => {
+              handleRatingChange(newValue);
+            }}
           />
         </label>
         <button type="submit">Add Review</button>
